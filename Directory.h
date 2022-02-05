@@ -1,0 +1,7 @@
+class Directory
+{
+	Directory()
+	{
+
+	}
+};
