@@ -17,7 +17,7 @@ class Directory
 		~Directory();
 
 		// Creates new directory under current directory
-		void createNewDirectory(string dirName);
+		void createNewDirectory(Directory* currDirectory, string dirName);
 
 		// Deletes directory of specified name
 		void deleteDirectory(string dirName);
@@ -28,11 +28,24 @@ class Directory
 		// Prints names of child directories
 		void printChildDirectoryNames();
 
-		// Print directory name
+		// Get directory name
 		string getDirName();
+
+		// Get directory size
+		size_t getDirSize();
+
+		// Get list of children directories
+		vector<Directory*> getChildrenDirectories();
+
+		// Get parent directory
+		Directory* getParentDirectory();
+
+		// Return if directory is root directory
+		bool isRoot();
 
 	private:
 		Directory* parent;				// Parent directory
 		vector<Directory*> children;	// Children directories
 		string dirName;					// Name of directory
+		size_t dirSize;					// Size of directory
 };
