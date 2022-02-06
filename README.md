@@ -9,5 +9,5 @@
 #### &ensp; Commands must be called on their own on the command line.
 * mkdir - creates new directory
 * cd - changes to directory
-** Use ".." to move up a directory
+  * Use ".." to move up a directory
 * ls - lists children directories
