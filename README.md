@@ -7,6 +7,7 @@
 
 ### Commands:
 #### &ensp; Commands must be called on their own on the command line.
+#### &ensp;&ensp; Ex: Call command as "/ >> mkdir"
 * mkdir - creates new directory
 * cd - changes to directory
   * Use ".." to move up a directory
