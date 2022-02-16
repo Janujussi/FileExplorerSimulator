@@ -1,4 +1,5 @@
 #include "Directory.h"
+#include <stack>
 
 Directory::Directory()
 {
@@ -58,7 +59,23 @@ void Directory::deleteDirectory(string dirName)
 
 void Directory::deleteDescendentDirectories()
 {
-	//DFS
+	vector<Directory*> childrenDirectories = this->children;	// Array of children directories to delete
+	stack<Directory*> toDelete;									// Tracking all descendents to delete
+
+	for (int i = 0; i < childrenDirectories.size(); i++) {
+		toDelete.push(childrenDirectories[i]);
+	}
+
+	while (!toDelete.empty()) {
+		if (toDelete.top()->dirSize != 0) {
+			toDelete.top()->deleteDescendentDirectories();
+		} else {
+			// Problems here
+			cout << "Deleted " << toDelete.top()->getDirName();
+			delete toDelete.top();
+			toDelete.pop();
+		}
+	}
 }
 
 void Directory::printChildDirectoryNames()

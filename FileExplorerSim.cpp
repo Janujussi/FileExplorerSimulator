@@ -10,7 +10,6 @@ string printDirectory(Directory* currDirectory);
 int main() {
 	FileExplorer thisSimulation;		// File explorer object
 	Directory* currDirectory = thisSimulation.getRoot();	// Current directory user is in
-
 	string commands[] = {		// All commands to use
 		"mkdir",
 		"deldir",
@@ -19,8 +18,8 @@ int main() {
 	};
 	size_t numOfCommands = sizeof(commands) / sizeof(commands[0]); 	// Size of command list
 	string userCommand;		// Command user enters
-	int command;					// Index of user command
-	bool validCommand;		// Check command is valid
+	int command;			// Index of user command
+	bool validCommand;		// Check command is valid flag
 
 	while(true) {
 		userCommand = "";
@@ -36,7 +35,6 @@ int main() {
 				command = i;
 				validCommand = true;
 			}
-
 		}
 		if (validCommand == false) {
 			command = -1;
@@ -67,6 +65,19 @@ int main() {
 			}
 
 			case 1: {	// deldir
+				string dirToDelete = "";
+
+				cout << "Directory name: ";
+				cin >> dirToDelete;
+
+				for (int i = 0; i < currDirectory->getDirSize(); i++) {
+					if (currDirectory->getChildrenDirectories()[i]->getDirName() == dirToDelete) {
+						currDirectory->getChildrenDirectories()[i]->deleteDescendentDirectories();
+					}
+				}
+
+				currDirectory->deleteDirectory(dirToDelete);
+				cout << "deleted directory";
 
 				break;
 			}
@@ -106,7 +117,6 @@ int main() {
 						break;
 					}
 				}
-
 				if (changed == false) {
 					cout << "No such directory." << endl;
 				}
