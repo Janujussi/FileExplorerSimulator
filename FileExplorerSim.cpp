@@ -77,7 +77,6 @@ int main() {
 				}
 
 				currDirectory->deleteDirectory(dirToDelete);
-				cout << "deleted directory";
 
 				break;
 			}

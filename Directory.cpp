@@ -62,25 +62,26 @@ void Directory::deleteDescendentDirectories()
 	vector<Directory*> childrenDirectories = this->children;	// Array of children directories to delete
 	stack<Directory*> toDelete;									// Tracking all descendents to delete
 
+	// DFS
+	// Push children directories onto stack
 	for (int i = 0; i < childrenDirectories.size(); i++) {
 		toDelete.push(childrenDirectories[i]);
 	}
 
+	// While stack is not empty
 	while (!toDelete.empty()) {
+		// If has children directories
 		if (toDelete.top()->dirSize != 0) {
-			toDelete.top()->deleteDescendentDirectories();
-		} else {
-			// Problems here
-			cout << "Deleted " << toDelete.top()->getDirName();
-			delete toDelete.top();
-			toDelete.pop();
+			toDelete.top()->deleteDescendentDirectories();		// Recursive call to function
 		}
+		delete toDelete.top();		// Delete top directory
+		toDelete.pop();				// Pop top directory
 	}
 }
 
 void Directory::printChildDirectoryNames()
 {
-	size_t numChildren = this->children.size();
+	size_t numChildren = this->getDirSize();
 
 	if (numChildren == 0) {
 		cout << "No directories." << endl;
