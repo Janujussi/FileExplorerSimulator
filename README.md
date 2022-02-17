@@ -1,10 +1,10 @@
 ## FileExplorerSimulator
 ### This is a work in progress.
-
+----------------------------------------------------------------------------------------
 ### Description:
 #### &ensp; This is a simulation of a file explorer. I have taken some inspiration from Linux command line.
 #### &ensp; A tree is used to store the directories.
-
+----------------------------------------------------------------------------------------
 ### Commands:
 #### &ensp; Call a command and command input on the same line. Separate them with spaces.
 #### &ensp;&ensp; Ex: Call command as "/ >> mkdir example_directory"
