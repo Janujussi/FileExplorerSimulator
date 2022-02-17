@@ -6,9 +6,13 @@
 #### &ensp; A tree is used to store the directories.
 
 ### Commands:
-#### &ensp; Commands must be called on their own on the command line.
-#### &ensp;&ensp; Ex: Call command as "/ >> mkdir"
+#### &ensp; Call a command and command input on the same line. Separate them with spaces.
+#### &ensp;&ensp; Ex: Call command as "/ >> mkdir example_directory"
 * mkdir - creates new directory
+  * called by: mkdir \<directory name>
+* deldir - deletes a directory
+  * called by: deldir \<directory name>
 * cd - changes to directory
   * Use ".." to move up a directory
+  * called by: cd \<directory name>
 * ls - lists children directories
